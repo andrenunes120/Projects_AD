@@ -1,47 +1,22 @@
 # Air Quality Index (AQI) Data Analysis Project
 
 ## Dataset Source
-The dataset was sourced from Kaggle: [AQI (Air Quality Index) Scheduled Daily Update](https://www.kaggle.com/datasets/azminetoushikwasi/aqi-air-quality-index-scheduled-daily-update)
 
-## Dataset Characteristics
-- **Total Records**: 18,759 entries
-- **Columns**: 
-  - Date
-  - Country
-  - Status
-  - AQI Value
+The dataset was sourced from Kaggle: [AQI (Air Quality Index)](https://www.kaggle.com/datasets/azminetoushikwasi/aqi-air-quality-index-scheduled-daily-update)
 
-## Data Quality Assessment
+## Dataset Structure and Initial Exploration
 
-### Missing Values
-- No missing values were found in any of the columns
-- All columns (Date, Country, Status, AQI Value) contain complete data
+The dataset contains 18,759 records and 4 columns: Date, Country, Status, and AQI Value. Initial exploration confirmed the structure and provided summary statistics for each column.
 
-### Outlier Analysis
-- **Number of Outliers**: 656 records identified
-- **Detection Method**: Interquartile Range (IQR) method
-- **Sample Outliers**:
-  - Bahrain: AQI Value 165
-  - Chile: AQI Value 178
-  - Ethiopia: AQI Value 165
-  - Iran: AQI Value 250
-  - Iraq: AQI Value 234
+## Missing Values
 
-## Data Transformation
+There are no missing values in any column. This was verified both by checking for missing entries and by calculating the percentage of missing values, which was 0% for all columns.
 
-### Log Transformation
-- Applied log transformation to AQI Values to handle skewness
-- Original Data Statistics:
-  - Mean: 63.74
-  - Standard Deviation: 50.29
-  - Range: 1 to 963
-- Transformed Data Statistics:
-  - Mean: 3.89
-  - Standard Deviation: 0.81
-  - Range: 0.69 to 6.87
+## Outlier Detection and Removal
 
-### Data Files
-- Original data: `data_date.csv`
-- Transformed data: `data_transformed.csv`
+Outliers in the 'AQI Value' column were identified using the interquartile range (IQR) method. Values outside the lower and upper bounds were considered outliers and removed. After this process, the dataset size was reduced from 18,759 to 18,103 records.
 
-The transformation significantly improved the data distribution, making it more suitable for statistical analysis and modeling.
+
+## Impact of Data Cleaning
+
+The removal of outliers resulted in a cleaner dataset, with more reliable AQI values for subsequent analysis. The summary statistics and box plots after cleaning confirmed the improved data quality.
